@@ -1,0 +1,21 @@
+{
+  "enabled": false,
+  "servers": [],
+  "timeout_seconds": 240,
+  "jwt_expiry_seconds": 3600,
+  "max_servers": 10,
+  "result_thresholds": {
+    "memory_broker_max_bytes": 1048576,
+    "file_max_bytes": 104857600
+  },
+  "lifecycle": {
+    "html_delete_after_processing": true,
+    "structured_archive_after_days": 0,
+    "archive_delete_after_days": 30,
+    "training_log_delete_after_days": 7
+  },
+  "circuit_breaker": {
+    "failure_threshold": 0.2,
+    "recovery_timeout_sec": 60
+  }
+}

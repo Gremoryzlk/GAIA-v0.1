@@ -1,0 +1,6 @@
+{
+  "name": "athena",
+  "enabled": true,
+  "agent_class": "modules.athena.agent.AthenaAgent",
+  "log_file": "logs/athena.log"
+}

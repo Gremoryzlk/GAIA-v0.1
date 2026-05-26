@@ -1,0 +1,24 @@
+{
+  "module": "aegis",
+  "version": "1.0",
+  "agent_type": "aegis",
+  "level": 1,
+  "tools": [
+    {
+      "name": "validate_input",
+      "description": "Validate and sanitize input payload"
+    },
+    {
+      "name": "verify_signature",
+      "description": "Verify HMAC signature of an event"
+    }
+  ],
+  "subscribes_to": [
+    "security.validate",
+    "security.verify",
+    "agent.isolated"
+  ],
+  "publishes": [
+    "security.violation"
+  ]
+}

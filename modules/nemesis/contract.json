@@ -1,0 +1,29 @@
+{
+  "module": "nemesis",
+  "version": "1.0",
+  "agent_type": "nemesis",
+  "level": 2,
+  "tools": [
+    {
+      "name": "quality_check",
+      "description": "Evaluate decision quality and detect divergence"
+    },
+    {
+      "name": "calibrate_confidence",
+      "description": "Calibrate agent confidence against actual outcomes"
+    }
+  ],
+  "subscribes_to": [
+    "task.completed",
+    "agent.restored",
+    "quality.check"
+  ],
+  "publishes": [
+    "quality.report",
+    "quality.alert",
+    "quality.calibration_alert",
+    "quality.regression_result",
+    "quality.regression_failed",
+    "agent.rogue_suspect"
+  ]
+}

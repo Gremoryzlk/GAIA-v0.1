@@ -1,0 +1,6 @@
+{
+  "name": "hermes",
+  "enabled": true,
+  "agent_class": "modules.hermes.agent.HermesAgent",
+  "log_file": "logs/hermes.log"
+}

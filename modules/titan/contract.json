@@ -1,0 +1,31 @@
+{
+  "module": "titan",
+  "version": "1.0",
+  "agent_type": "titan",
+  "level": 2,
+  "tools": [
+    {
+      "name": "scraping",
+      "description": "HTTP scraping with rate limiting and BS4 parsing"
+    },
+    {
+      "name": "compute",
+      "description": "Heavy numpy/scipy computations offloaded to Titan server"
+    },
+    {
+      "name": "ml_train",
+      "description": "MetaController training batches with ModelState versioning"
+    }
+  ],
+  "subscribes_to": [
+    "compute.request",
+    "compute.result",
+    "titan.checkpoint"
+  ],
+  "publishes": [
+    "compute.result",
+    "compute.failed",
+    "titan.checkpoint",
+    "titan.status"
+  ]
+}

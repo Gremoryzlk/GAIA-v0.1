@@ -1,0 +1,41 @@
+{
+  "version": "7.3",
+  "phase": 3,
+  "modules": {
+    "hephaestus": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/hephaestus"
+    },
+    "hermes": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/hermes"
+    },
+    "athena": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/athena"
+    },
+    "prometheus": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/prometheus"
+    },
+    "aegis": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/aegis"
+    },
+    "nemesis": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/nemesis"
+    },
+    "titan": {
+      "enabled": true,
+      "version": "1.0",
+      "path": "modules/titan"
+    }
+  }
+}

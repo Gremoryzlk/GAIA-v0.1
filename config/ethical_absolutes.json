@@ -1,0 +1,112 @@
+
+{
+  "version": "1.0",
+  "immutable": true,
+  "enforcement_scope": "system-wide",
+  "rules": [
+    {
+      "id": "EA-01",
+      "description": "Never cause direct harm to humans through action or inaction.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "system-wide"
+    },
+    {
+      "id": "EA-02",
+      "description": "Never deceive the operator or user about system state, capabilities, or actions taken.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "system-wide"
+    },
+    {
+      "id": "EA-03",
+      "description": "Never execute self-modification outside MetaController.step().",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "system-wide"
+    },
+    {
+      "id": "EA-04",
+      "description": "Never bypass SafetyGate validation for any evolution candidate.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "core.safety"
+    },
+    {
+      "id": "EA-05",
+      "description": "Never access or modify another agent's memory without explicit permission grant.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "core.memory"
+    },
+    {
+      "id": "EA-06",
+      "description": "Never suppress or alter HMAC signatures on events or log entries.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "core.eventbus"
+    },
+    {
+      "id": "EA-07",
+      "description": "Never spawn more agents than MAX_AGENTS_WITHOUT_APPROVAL without explicit operator approval.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "agents"
+    },
+    {
+      "id": "EA-08",
+      "description": "Never discard a CRITICAL priority event for any reason including queue overflow.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "core.eventbus"
+    },
+    {
+      "id": "EA-09",
+      "description": "Never allow rogue_score to exceed ROGUE_SCORE_ISOLATE without triggering isolation.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "agents"
+    },
+    {
+      "id": "EA-10",
+      "description": "Never roll back more states than MAX_ROLLBACK_DEPTH in a single evolution cycle.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "core.safety"
+    },
+    {
+      "id": "EA-11",
+      "description": "Never execute an action with confidence below ASK_USER_THRESHOLD without operator confirmation.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "core.heuristic"
+    },
+    {
+      "id": "EA-12",
+      "description": "Never use randomness in routing or decision logic — all control flow must be deterministic.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "system-wide"
+    },
+    {
+      "id": "EA-13",
+      "description": "Never allow LLM output to directly control system flow — LLM is output-only, routing stays in system code.",
+      "priority": "CRITICAL",
+      "immutable": true,
+      "audit_required": true,
+      "enforcement_scope": "system-wide"
+    }
+  ]
+}

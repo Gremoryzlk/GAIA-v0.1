@@ -1,0 +1,25 @@
+{
+  "module": "athena",
+  "version": "1.0",
+  "agent_type": "athena",
+  "level": 1,
+  "tools": [
+    {
+      "name": "analyze_text",
+      "description": "Analyze text for urgency and entities"
+    },
+    {
+      "name": "decompose_task",
+      "description": "Decompose complex task into steps"
+    }
+  ],
+  "subscribes_to": [
+    "task.plan",
+    "task.analyze"
+  ],
+  "publishes": [
+    "task.decomposed",
+    "task.analyzed",
+    "routing.request"
+  ]
+}

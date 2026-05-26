@@ -1,0 +1,327 @@
+{
+  "rules": [
+    {
+      "rule_id": "r001",
+      "condition": {
+        "event_type": "user_query",
+        "complexity": "high"
+      },
+      "action": {
+        "route_to": "gaia_l0",
+        "set_priority": "HIGH"
+      },
+      "weight": 0.95,
+      "applies_to": "task_routing"
+    },
+    {
+      "rule_id": "r002",
+      "condition": {
+        "event_type": "user_query",
+        "complexity": "medium"
+      },
+      "action": {
+        "route_to": "l1_agent",
+        "set_priority": "NORMAL"
+      },
+      "weight": 0.85,
+      "applies_to": "task_routing"
+    },
+    {
+      "rule_id": "r003",
+      "condition": {
+        "event_type": "user_query",
+        "complexity": "low"
+      },
+      "action": {
+        "route_to": "l1_agent",
+        "set_priority": "LOW"
+      },
+      "weight": 0.75,
+      "applies_to": "task_routing"
+    },
+    {
+      "rule_id": "r004",
+      "condition": {
+        "event_type": "system_alert",
+        "severity": "critical"
+      },
+      "action": {
+        "route_to": "gaia_l0",
+        "set_priority": "CRITICAL"
+      },
+      "weight": 1.0,
+      "applies_to": "task_routing"
+    },
+    {
+      "rule_id": "r005",
+      "condition": {
+        "event_type": "system_alert",
+        "severity": "warning"
+      },
+      "action": {
+        "route_to": "l1_agent",
+        "set_priority": "HIGH"
+      },
+      "weight": 0.9,
+      "applies_to": "task_routing"
+    },
+    {
+      "rule_id": "r006",
+      "condition": {
+        "ram_usage_percent": 85
+      },
+      "action": {
+        "evict_b_tier": true,
+        "reduce_eventbus_workers": 0.5
+      },
+      "weight": 0.98,
+      "applies_to": "resource_management"
+    },
+    {
+      "rule_id": "r007",
+      "condition": {
+        "ram_usage_percent": 70
+      },
+      "action": {
+        "evict_b_tier": true,
+        "threshold": 0.5
+      },
+      "weight": 0.85,
+      "applies_to": "resource_management"
+    },
+    {
+      "rule_id": "r008",
+      "condition": {
+        "cpu_usage_percent": 85
+      },
+      "action": {
+        "pause_low_priority_agents": true,
+        "activate_safe_mode": true
+      },
+      "weight": 0.97,
+      "applies_to": "resource_management"
+    },
+    {
+      "rule_id": "r009",
+      "condition": {
+        "cpu_usage_percent": 70
+      },
+      "action": {
+        "throttle_eventbus": 0.7
+      },
+      "weight": 0.8,
+      "applies_to": "resource_management"
+    },
+    {
+      "rule_id": "r010",
+      "condition": {
+        "eventbus_pressure": 0.85
+      },
+      "action": {
+        "drop_low_priority_events": true,
+        "notify_load_shedding": true
+      },
+      "weight": 0.92,
+      "applies_to": "resource_management"
+    },
+    {
+      "rule_id": "r011",
+      "condition": {
+        "eventbus_pressure": 0.95
+      },
+      "action": {
+        "drop_normal_events": true,
+        "activate_emergency_mode": true
+      },
+      "weight": 0.99,
+      "applies_to": "resource_management"
+    },
+    {
+      "rule_id": "r012",
+      "condition": {
+        "permission_check": "denied"
+      },
+      "action": {
+        "publish_event": "security.permission_denied",
+        "isolate_agent": true
+      },
+      "weight": 1.0,
+      "applies_to": "security"
+    },
+    {
+      "rule_id": "r013",
+      "condition": {
+        "rogue_score": 5
+      },
+      "action": {
+        "isolate_agent": true,
+        "log_security_incident": true
+      },
+      "weight": 0.99,
+      "applies_to": "security"
+    },
+    {
+      "rule_id": "r014",
+      "condition": {
+        "rogue_score": 3
+      },
+      "action": {
+        "increase_monitoring": true,
+        "notify_security_team": true
+      },
+      "weight": 0.9,
+      "applies_to": "security"
+    },
+    {
+      "rule_id": "r015",
+      "condition": {
+        "hmac_verification": "failed"
+      },
+      "action": {
+        "reject_event": true,
+        "log_security_violation": true
+      },
+      "weight": 1.0,
+      "applies_to": "security"
+    },
+    {
+      "rule_id": "r016",
+      "condition": {
+        "shadow_divergence": 0.05
+      },
+      "action": {
+        "trigger_audit": true,
+        "quarantine_output": true
+      },
+      "weight": 0.95,
+      "applies_to": "security"
+    },
+    {
+      "rule_id": "r017",
+      "condition": {
+        "memory_type": "working",
+        "ttl_expired": true
+      },
+      "action": {
+        "evict_entry": true,
+        "log_memory_cleanup": true
+      },
+      "weight": 0.85,
+      "applies_to": "memory"
+    },
+    {
+      "rule_id": "r018",
+      "condition": {
+        "memory_type": "longterm",
+        "entry_count": 1000000
+      },
+      "action": {
+        "evict_lru_entries": 10,
+        "log_memory_eviction": true
+      },
+      "weight": 0.9,
+      "applies_to": "memory"
+    },
+    {
+      "rule_id": "r019",
+      "condition": {
+        "memory_type": "longterm",
+        "confidence_score": 0.3
+      },
+      "action": {
+        "mark_for_review": true,
+        "reduce_visibility": true
+      },
+      "weight": 0.75,
+      "applies_to": "memory"
+    },
+    {
+      "rule_id": "r020",
+      "condition": {
+        "agent_status": "IDLE",
+        "heartbeat_age": 900
+      },
+      "action": {
+        "mark_inactive": true
+      },
+      "weight": 0.8,
+      "applies_to": "agent_management"
+    },
+    {
+      "rule_id": "r021",
+      "applies_to": "task_routing",
+      "condition": {
+        "task_type": "file_read"
+      },
+      "action": {
+        "route_to": "hephaestus",
+        "tool": "file",
+        "operation": "read"
+      },
+      "weight": 0.95
+    },
+    {
+      "rule_id": "r022",
+      "applies_to": "task_routing",
+      "condition": {
+        "task_type": "file_write"
+      },
+      "action": {
+        "route_to": "hephaestus",
+        "tool": "file",
+        "operation": "write"
+      },
+      "weight": 0.95
+    },
+    {
+      "rule_id": "r023",
+      "applies_to": "task_routing",
+      "condition": {
+        "task_type": "file_list"
+      },
+      "action": {
+        "route_to": "hephaestus",
+        "tool": "file",
+        "operation": "list"
+      },
+      "weight": 0.9
+    },
+    {
+      "rule_id": "r024",
+      "applies_to": "task_routing",
+      "condition": {
+        "task_type": "memory_read"
+      },
+      "action": {
+        "route_to": "hephaestus",
+        "tool": "memory",
+        "operation": "read"
+      },
+      "weight": 0.9
+    },
+    {
+      "rule_id": "r025",
+      "applies_to": "task_routing",
+      "condition": {
+        "task_type": "analysis"
+      },
+      "action": {
+        "route_to": "gaia_l0",
+        "set_priority": "HIGH"
+      },
+      "weight": 0.85
+    },
+    {
+      "rule_id": "r026",
+      "applies_to": "task_routing",
+      "condition": {
+        "urgency": 0.8
+      },
+      "action": {
+        "route_to": "gaia_l0",
+        "set_priority": "CRITICAL"
+      },
+      "weight": 0.99
+    }
+  ]
+}

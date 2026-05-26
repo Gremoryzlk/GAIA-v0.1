@@ -1,0 +1,8 @@
+{
+  "name": "nemesis",
+  "enabled": true,
+  "agent_class": "modules.nemesis.agent.NemesisAgent",
+  "log_file": "logs/nemesis.log",
+  "history_size": 100,
+  "regression_sample": 20
+}

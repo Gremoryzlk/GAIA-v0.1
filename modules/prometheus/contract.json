@@ -1,0 +1,24 @@
+{
+  "module": "prometheus",
+  "version": "1.0",
+  "agent_type": "prometheus",
+  "level": 1,
+  "tools": [
+    {
+      "name": "system_metrics",
+      "description": "Collect CPU, RAM, disk metrics"
+    },
+    {
+      "name": "agent_health",
+      "description": "Check health status of all agents"
+    }
+  ],
+  "subscribes_to": [
+    "metrics.request",
+    "agent.isolated",
+    "agent.restored"
+  ],
+  "publishes": [
+    "metrics.system"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "aegis",
+  "enabled": true,
+  "agent_class": "modules.aegis.agent.AegisAgent",
+  "log_file": "logs/aegis.log"
+}

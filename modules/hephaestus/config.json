@@ -1,0 +1,7 @@
+{
+  "name": "hephaestus",
+  "enabled": true,
+  "agent_class": "modules.hephaestus.agent.HephaestusAgent",
+  "workspace_dir": "modules/hephaestus/data/workspace",
+  "log_file": "logs/hephaestus.log"
+}

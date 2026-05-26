@@ -1,0 +1,7 @@
+{
+  "name": "prometheus",
+  "enabled": true,
+  "agent_class": "modules.prometheus.agent.PrometheusAgent",
+  "log_file": "logs/prometheus.log",
+  "collect_interval_sec": 30
+}

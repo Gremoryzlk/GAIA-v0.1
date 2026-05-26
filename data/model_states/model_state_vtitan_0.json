@@ -1,0 +1,18 @@
+{
+  "step": 1,
+  "fitness": -2.5684425830841064,
+  "weights_shape": [
+    4,
+    4
+  ],
+  "architecture": {
+    "type": "dense",
+    "layers": [
+      4,
+      4
+    ]
+  },
+  "weights_hash": "d4af01958437c79f",
+  "version": "titan_0",
+  "saved_at": "2026-05-26T08:37:27.404944+00:00"
+}
